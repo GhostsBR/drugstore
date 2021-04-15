@@ -1,4 +1,5 @@
 import datetime
+import datetime
 
 class bcolors:
     HEADER = '\033[95m'
@@ -54,8 +55,10 @@ class Pharmaceutical:
 
     def delivery_drug(self, patient):
         print(f"{bcolors.OKGREEN}-{bcolors.ENDC}"*100)
-        print(f"{bcolors.OKGREEN}MEDICAMENTO ENTREGUE{bcolors.ENDC}")
-        print(f"{bcolors.OKGREEN}O medicamento {patient.prescription.drug_name} foi entregue ao paciente {patient.name}{bcolors.ENDC}")
+        print(f"{bcolors.OKGREEN}RECIBO DA ENTREGA{bcolors.ENDC}")
+        print(f"{bcolors.OKGREEN}{patient.prescription.drug_quantity}x - {patient.prescription.drug_name}{bcolors.ENDC}")
+        print(f"{bcolors.OKGREEN}Paciente: {patient.name}{bcolors.ENDC}")
+        print(f"{bcolors.OKGREEN}Data: {datetime.datetime.now().day}/{datetime.datetime.now().month}/{datetime.datetime.now().year}{bcolors.ENDC}")
         print(f"{bcolors.OKGREEN}-{bcolors.ENDC}" *100)
 
     def take_from_stock(self, drug_name, drug_quantity):
